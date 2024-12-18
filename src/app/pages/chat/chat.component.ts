@@ -16,11 +16,15 @@ import { ChatService } from '../../services/chat.service';
 })
 export class ChatComponent implements OnInit {
 
+  messageList: string[] = [];
+
+
+
   userName: string = '';
   myMessage: string = '';
 
   visibleUserName: boolean = false;
-  chatService:ChatService;
+  chatService: ChatService;
   constructor() {
     this.chatService = inject(ChatService);
   }
@@ -31,6 +35,17 @@ export class ChatComponent implements OnInit {
     } else {
       this.visibleUserName = false;
     }
+
+    this.chatService.message$.subscribe(resp => {
+      this.messageList.push(resp);
+    });
+    this.chatService.user$.subscribe(resp=>{
+      this.messageList.push(resp);
+    });
+
+
+
+
   }
 
   sendMessage() {
