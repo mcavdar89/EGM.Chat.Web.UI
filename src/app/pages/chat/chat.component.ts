@@ -34,7 +34,7 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage() {
-    console.log(this.myMessage);
+    this.chatService.sendMessage(this.userName, this.myMessage);
     this.myMessage = '';
   }
 
@@ -43,7 +43,7 @@ export class ChatComponent implements OnInit {
       return;
 
     this.chatService.connect(this.userName);
-    
+
     this.visibleUserName = false;
 
   }

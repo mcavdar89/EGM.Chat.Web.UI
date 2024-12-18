@@ -15,7 +15,7 @@ export class ChatService {
 
   connect(username: string) {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://localhost:5100/chatHub', { accessTokenFactory: () => username })
+      .withUrl('http://localhost:5100/chatHub', { accessTokenFactory: () => username })
       .withAutomaticReconnect()
       .build();
 
