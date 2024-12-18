@@ -1,0 +1,17 @@
+<div style="max-width: 800px;margin-top: 10px; margin-left: auto !important; margin-right: auto !important;">
+    <p-card header="Grup Yazışmaları">
+        <div>
+            yazışmalar
+        </div>
+        <div class="row">
+            <div class="col-md-10">            
+                <input type="text" pInputText [(ngModel)]="myMessage" (keyup.enter)="sendMessage()" />
+            </div>
+            <div class="col-md-2">
+                <button pButton type="button" label="Gönder" (click)="sendMessage()"></button>
+            </div>
+        </div>
+       
+    </p-card>
+</div>
+
